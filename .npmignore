@@ -1,0 +1,28 @@
+# Common aux folders
+.awcache/
+.vscode/
+.idea/
+.cache/
+.sonarlint/
+
+# Dependencies & Build
+node_modules/
+build-dev/
+build-prod/
+junit.xml
+
+# Testing
+/jest-coverage
+/reports
+
+# Aux files
+*.cer
+*.log
+*/src/**/*.orig
+*/src/**/*.js.map
+
+# Win
+desktop.ini
+
+# MacOs
+.DS_Store

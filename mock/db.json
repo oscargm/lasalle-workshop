@@ -1,0 +1,37 @@
+{
+  "instruments": [
+    {
+      "id": 2,
+      "ID": "572||2",
+      "Description": "Cobas 8000 ICA"
+    },
+    {
+      "id": 3,
+      "ID": "723||1",
+      "Description": "RSA Dynamic"
+    }
+  ],
+  "testConfiguration": {
+    "uuid": "cce8a203-e594-4c18-96bb-cc21eb2ab773",
+    "clientIdentifier": "hospital1",
+    "countryIdentifier": "country1",
+    "exportPath": "c:\\temp",
+    "demographicIdentifier": 3,
+    "fileStoragePeriod": 6,
+    "demographicValues": null
+  },
+  "demographics": [
+    {
+      "id": 1,
+      "description": "Destination"
+    },
+    {
+      "id": 2,
+      "description": "Diagnosis"
+    },
+    {
+      "id": 3,
+      "description": "Origin"
+    }
+  ]
+}

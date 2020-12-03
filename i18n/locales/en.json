@@ -1,0 +1,12 @@
+{
+  "layout": {
+    "mainTitle": "base-app",
+    "reportList": "Reports list",
+    "configuration": "base-app configuration"
+  },
+  "configuration": {
+    "generalSettings": "General Settings",
+    "instrumentSettings": "Instrument settings",
+    "manualExport": "Manual Export"
+  }
+}
