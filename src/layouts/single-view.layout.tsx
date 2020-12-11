@@ -1,12 +1,10 @@
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Container } from '@material-ui/core';
 import { useStyles } from './single-view.styles';
 import { RocheAppBar } from 'src/common/components/app-bar/app-bar.component';
 
 export const SingleView: React.FunctionComponent = (props) => {
   const { children } = props;
-  const { t } = useTranslation();
   const classes = useStyles();
   return (
     <>

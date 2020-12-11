@@ -1,37 +1,53 @@
 {
-  "instruments": [
-    {
-      "id": 2,
-      "ID": "572||2",
-      "Description": "Cobas 8000 ICA"
-    },
-    {
-      "id": 3,
-      "ID": "723||1",
-      "Description": "RSA Dynamic"
-    }
-  ],
-  "testConfiguration": {
-    "uuid": "cce8a203-e594-4c18-96bb-cc21eb2ab773",
-    "clientIdentifier": "hospital1",
-    "countryIdentifier": "country1",
-    "exportPath": "c:\\temp",
-    "demographicIdentifier": 3,
-    "fileStoragePeriod": 6,
-    "demographicValues": null
-  },
-  "demographics": [
-    {
-      "id": 1,
-      "description": "Destination"
-    },
-    {
-      "id": 2,
-      "description": "Diagnosis"
-    },
-    {
-      "id": 3,
-      "description": "Origin"
-    }
-  ]
+  "dashboard": {
+    "widgets": [
+      {
+        "title": "My health",
+        "description": "Details of your health",
+        "items": [
+          {
+            "name": "Overview",
+            "altText": "Your health overview",
+            "url": "/patient"
+          },
+          {
+            "name": "Test results",
+            "altText": "Check your latest test results",
+            "url": "/patient/results"
+          },
+          {
+            "name": "Notifications",
+            "altText": "Check your correspondency",
+            "url": "/patient/inbox"
+          }
+        ]
+      },
+      {
+        "title": "My doctor",
+        "description": "Manage doctor appointments and more.",
+        "items": [
+          {
+            "name": "Doctor's profile",
+            "altText": "An overview of your Doctor's consultancy services",
+            "url": "/doc"
+          },
+          {
+            "name": "Appointments",
+            "altText": "Manage your doctor's appointments",
+            "url": "/doc/appointments"
+          },
+          {
+            "name": "Messages",
+            "altText": "Chat with your doctor",
+            "url": "/doc/messages"
+          },
+          {
+            "name": "Specialists",
+            "altText": "Check specialist doctors",
+            "url": "/doc/specialists"
+          }
+        ]
+      }
+    ]
+  }
 }

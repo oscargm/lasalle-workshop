@@ -1,10 +1,17 @@
 import * as React from 'react';
-import { BrowserRouter, HashRouter, Redirect, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter,
+  HashRouter,
+  Redirect,
+  Route,
+  Switch,
+} from 'react-router-dom';
 // import { ConnectedRouter } from 'connected-react-router';
 import { routes } from 'core/routes';
 // import { SingleView } from 'layouts';
 import { LoginScene } from './scenes';
 import { DashboardScene } from './scenes/dashboard.scene';
+import { PatientOverviewScene } from './scenes/patient-overview.scene';
 
 export const AppRouter = () => (
   <HashRouter>
@@ -20,6 +27,9 @@ export const AppRouter = () => (
       </Route>
       <Route exact={true} path={routes.dashboard}>
         <DashboardScene />
+      </Route>
+      <Route exact={true} path={routes.patientOverview}>
+        <PatientOverviewScene />
       </Route>
     </Switch>
   </HashRouter>

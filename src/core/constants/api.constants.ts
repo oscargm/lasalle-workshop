@@ -5,6 +5,4 @@ export const BASE_URL =
     ? 'http://localhost:3000'
     : generateUrl(window.location.protocol, window.location.host, window.location.port || null);
 
-export const INSTRUMENTS_URL = process.env.INSTRUMENTS_URL ?? `${BASE_URL}/instruments`;
-export const CONFIGURATION_URL = process.env.CONFIGURATION_URL ?? `${BASE_URL}/configuration`;
-export const DEMOGRAPHICS_URL = process.env.DEMOGRAPHICS_URL ?? `${BASE_URL}/demographics`;
+export const DASHBOARD_URL = process.env.DASHBOARD_URL ?? `${BASE_URL}/dashboard`;

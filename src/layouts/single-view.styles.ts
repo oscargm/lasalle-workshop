@@ -1,6 +1,4 @@
-import { fade, makeStyles } from '@material-ui/core/styles';
-
-const heightTotal = { height: '100%' };
+import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
   container: {

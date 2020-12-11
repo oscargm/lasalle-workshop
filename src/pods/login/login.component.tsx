@@ -40,9 +40,23 @@ export const Login = () => {
       <div className={classes.page}>
         <Typography variant={'h3'}>Login</Typography>
         <div className={classes.form}>
-          <TextField name={'username'} label={'username'} variant={'outlined'} type={'text'} />
-          <TextField name={'password'} label={'password'} variant={'outlined'} type={'password'} />
-          <Button variant={'contained'} color={'primary'} onClick={onLoginHandler}>
+          <TextField
+            name={'username'}
+            label={'username'}
+            variant={'outlined'}
+            type={'text'}
+          />
+          <TextField
+            name={'password'}
+            label={'password'}
+            variant={'outlined'}
+            type={'password'}
+          />
+          <Button
+            variant={'contained'}
+            color={'primary'}
+            onClick={onLoginHandler}
+          >
             Enter
           </Button>
         </div>

@@ -1,19 +1,26 @@
 import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
-  section: {
-    minWidth: 275,
+  container: {
+    textAlign: 'center',
   },
-  sectionWrapper: {
+  widget: {
+    minWidth: 275,
+    border: '0.5px solid #ccc',
+  },
+  widgetWrapper: {
     padding: theme.spacing(1),
   },
+  pageTitle: { marginBottom: '1.5rem' },
   title: {
-    fontSize: 14,
+    fontSize: 18,
+    textAlign: 'center',
+    borderBottom: '1px solid black',
   },
   pos: {
     marginBottom: 12,
   },
-  sections: {
+  widgets: {
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
