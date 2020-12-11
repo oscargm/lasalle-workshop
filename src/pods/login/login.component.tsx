@@ -1,5 +1,6 @@
-import { Button, makeStyles, TextField, Typography } from '@material-ui/core';
 import * as React from 'react';
+import { history } from 'core/routes/history';
+import { Button, makeStyles, TextField, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -30,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
 
 export const Login = () => {
   const classes = useStyles();
+  const onLoginHandler = () => {
+    history.push('/dashboard');
+  };
+
   return (
     <div className={classes.background}>
       <div className={classes.page}>
@@ -37,7 +42,7 @@ export const Login = () => {
         <div className={classes.form}>
           <TextField name={'username'} label={'username'} variant={'outlined'} type={'text'} />
           <TextField name={'password'} label={'password'} variant={'outlined'} type={'password'} />
-          <Button variant={'contained'} color={'primary'}>
+          <Button variant={'contained'} color={'primary'} onClick={onLoginHandler}>
             Enter
           </Button>
         </div>

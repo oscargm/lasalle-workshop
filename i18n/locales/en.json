@@ -8,5 +8,9 @@
     "generalSettings": "General Settings",
     "instrumentSettings": "Instrument settings",
     "manualExport": "Manual Export"
+  },
+  "appBar": {
+    "appName": "My Diagnostics",
+    "searchPlaceholder": "Search..."
   }
 }

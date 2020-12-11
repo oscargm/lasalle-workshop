@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 // import { ConnectedRouter } from 'connected-react-router';
-import { history, routes } from 'core/routes';
-import { SingleView } from 'layouts';
+import { routes } from 'core/routes';
+// import { SingleView } from 'layouts';
 import { LoginScene } from './scenes';
+import { DashboardScene } from './scenes/dashboard.scene';
 
 export const AppRouter = () => (
-  <BrowserRouter>
+  <HashRouter>
     <Switch>
       {/* TODO: configure protected routes */}
       {/* <Route exact={true} path={routes.home}>
@@ -17,6 +18,9 @@ export const AppRouter = () => (
       <Route exact={true} path={routes.login}>
         <LoginScene />
       </Route>
+      <Route exact={true} path={routes.dashboard}>
+        <DashboardScene />
+      </Route>
     </Switch>
-  </BrowserRouter>
+  </HashRouter>
 );

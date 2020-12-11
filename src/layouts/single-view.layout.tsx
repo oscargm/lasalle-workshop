@@ -1,21 +1,21 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Tabs, Container, AppBar, Tab } from '@material-ui/core';
+import { Container } from '@material-ui/core';
 import { useStyles } from './single-view.styles';
+import { RocheAppBar } from 'src/common/components/app-bar/app-bar.component';
 
 export const SingleView: React.FunctionComponent = (props) => {
   const { children } = props;
   const { t } = useTranslation();
-  const styles = useStyles();
-
+  const classes = useStyles();
   return (
     <>
-      <AppBar title={t('layout.mainTitle')} position="relative" />
-      <Tabs value={1} indicatorColor="primary" textColor="primary">
-        <Tab label={t('layout.reportList')} disabled />
+      <RocheAppBar />
+      {/* <Tabs value={1} indicatorColor="primary" textColor="primary">
+        <Tab label={t('layout.reportList')} />
         <Tab label={t('layout.configuration')} />
-      </Tabs>
-      <Container classes={styles} maxWidth={false}>
+      </Tabs> */}
+      <Container className={classes.container} maxWidth={'lg'}>
         {children}
       </Container>
     </>
