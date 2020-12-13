@@ -11,8 +11,9 @@ export const Appointments = () => {
   const classes = useStyles();
 
   React.useEffect(() => {
-    console.log('appointments');
-    getAppointments(1).then((response) => setAppointments(response));
+    getAppointments(1).then((response: Appointment[]) =>
+      setAppointments(response)
+    );
   }, []);
 
   return (

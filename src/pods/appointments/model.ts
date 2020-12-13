@@ -1,4 +1,5 @@
-import { ColDef } from '@material-ui/data-grid';
+import { ColDef, ValueGetterParams } from '@material-ui/data-grid';
+import { renderStatus } from './utils';
 
 export interface Appointment {
   id: number;
@@ -19,5 +20,16 @@ export const Columns: ColDef[] = [
   { field: 'appointmentTime', headerName: 'Appointment Time', width: 130 },
   { field: 'followUpDate', headerName: 'Follow up Date', width: 130 },
   { field: 'followUpTime', headerName: 'Follow up Time', width: 130 },
-  { field: 'status', headerName: 'Status', width: 130 },
+  {
+    field: 'status',
+    headerName: 'Status',
+    width: 130,
+    renderCell: (params: ValueGetterParams) =>
+      renderStatus(params.getValue('status').toString()),
+  },
 ];
+
+export enum AppointmentStatus {
+  Accepted = 'Accepted',
+  Pending = 'Pending',
+}

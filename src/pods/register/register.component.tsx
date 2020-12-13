@@ -9,7 +9,7 @@ import {
   Typography,
   Link,
 } from '@material-ui/core';
-import { StaticRouter } from 'react-router';
+import { registerUser } from './api/register.service';
 
 const useStyles = makeStyles(() => ({
   background: {
@@ -53,46 +53,26 @@ const RegisterInner: React.FC = () => {
     stateProp: string
   ) => {
     let formValue = event.target.value;
-    if (stateProp === 'password' || stateProp === 'repassword') {
-      formValue = md5(formValue);
+    if (['password', 'repassword'].includes(stateProp)) {
+      formValue = md5(formValue); //    some professional cipher instead
     }
     setState({ ...state, [stateProp]: formValue });
   };
 
   const onRegisterHandler = () => {
     if (state.password === state.repassword) {
-      const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(state),
-      };
-      fetch('http://localhost:3000/users', requestOptions).then(
-        async (response) => {
-          const data = await response.json();
-
-          if (!response.ok) {
-            const error = (data && data.message) || response.status;
-            console.log(error);
-            return Promise.reject(error);
-          }
-
-          if (data.error) {
-            addToast(data.message, { appearance: 'error' });
-          }
-
-          addToast(
-            'User created',
-            {
-              appearance: 'success',
-            },
-            () => {
-              setTimeout(() => {
-                history.push('/');
-              }, 3000);
-            }
-          );
-        }
-      );
+      registerUser(state.username, state.password)
+        .then((response) => {
+          console.log('response', response);
+          addToast('User created', { appearance: 'success' }, () => {
+            setTimeout(() => {
+              history.push('/');
+            }, 3000);
+          });
+        })
+        .catch((error: string) => {
+          addToast(error, { appearance: 'error' });
+        });
     } else {
       addToast('Passwords are different', { appearance: 'error' });
     }
@@ -162,13 +142,4 @@ const RegisterInner: React.FC = () => {
   );
 };
 
-const RegisterComplete = () => (
-  <ToastProvider
-    autoDismiss
-    autoDismissTimeout={3000}
-    placement="bottom-center"
-  >
-    <RegisterInner></RegisterInner>
-  </ToastProvider>
-);
-export const Register = RegisterComplete;
+export const Register = RegisterInner;
