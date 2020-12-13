@@ -1,5 +1,6 @@
 {
   "*/instruments": "/instruments",
   "*/configuration": "/testConfiguration",
-  "*/demographics": "/demographics"
+  "*/demographics": "/demographics",
+  "*/register-error": "/register-error"
 }

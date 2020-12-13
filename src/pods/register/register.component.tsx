@@ -1,5 +1,7 @@
 import * as React from 'react';
+import { ToastProvider, useToasts } from 'react-toast-notifications';
 import { history } from 'core/routes/history';
+import md5 from 'md5';
 import {
   Button,
   makeStyles,
@@ -7,8 +9,9 @@ import {
   Typography,
   Link,
 } from '@material-ui/core';
+import { StaticRouter } from 'react-router';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   background: {
     width: '100%',
     height: '100vh',
@@ -35,115 +38,137 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-class RegisterInner extends React.Component {
-  private classes;
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      date: '',
-      username: '',
-      password: '',
-      repassword: '',
-    };
-    this.classes = useStyles();
-  }
-  public handleNameChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+const RegisterInner: React.FC = () => {
+  const classes = useStyles();
+  const { addToast } = useToasts();
+  const [state, setState] = React.useState({
+    name: '',
+    date: '',
+    username: '',
+    password: '',
+    repassword: '',
+  });
+  const handleChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+    stateProp: string
   ) => {
-    this.setState({ name: e.target.value });
-  };
-
-  public handleDateChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-  ) => {
-    this.setState({ date: e.target.value });
-  };
-  public handleUsernameChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-  ) => {
-    this.setState({ username: e.target.value });
-  };
-  public handlePasswordChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-  ) => {
-    this.setState({ password: e.target.value });
-  };
-  public handleRepasswordChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-  ) => {
-    this.setState({ repassword: e.target.value });
+    let formValue = event.target.value;
+    if (stateProp === 'password' || stateProp === 'repassword') {
+      formValue = md5(formValue);
+    }
+    setState({ ...state, [stateProp]: formValue });
   };
 
-  public onRegisterHandler = () => {
-    console.log(this.state);
+  const onRegisterHandler = () => {
+    if (state.password === state.repassword) {
+      const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(state),
+      };
+      fetch('http://localhost:3000/users', requestOptions).then(
+        async (response) => {
+          const data = await response.json();
+
+          if (!response.ok) {
+            const error = (data && data.message) || response.status;
+            console.log(error);
+            return Promise.reject(error);
+          }
+
+          if (data.error) {
+            addToast(data.message, { appearance: 'error' });
+          }
+
+          addToast(
+            'User created',
+            {
+              appearance: 'success',
+            },
+            () => {
+              setTimeout(() => {
+                history.push('/');
+              }, 3000);
+            }
+          );
+        }
+      );
+    } else {
+      addToast('Passwords are different', { appearance: 'error' });
+    }
   };
 
-  public render() {
-    return (
-      <div className={this.classes.background}>
-        <div className={this.classes.page}>
-          <Typography variant={'h3'}>Register</Typography>
-          <div className={this.classes.form}>
-            <TextField
-              name={'name'}
-              label={'name'}
-              variant={'outlined'}
-              type={'text'}
-              onChange={this.handleNameChange}
-            />
-            <TextField
-              name={'date of birth'}
-              label={'date of birth'}
-              variant={'outlined'}
-              type={'date'}
-              InputLabelProps={{
-                shrink: true,
-              }}
-              onChange={this.handleDateChange}
-            />
-            <TextField
-              name={'username'}
-              label={'username'}
-              variant={'outlined'}
-              type={'text'}
-              onChange={this.handleUsernameChange}
-            />
-            <TextField
-              name={'password'}
-              label={'password'}
-              variant={'outlined'}
-              type={'password'}
-              onChange={this.handlePasswordChange}
-            />
-            <TextField
-              name={'repassword'}
-              label={'repeat password'}
-              variant={'outlined'}
-              type={'password'}
-              onChange={this.handleRepasswordChange}
-            />
-            <Button
-              variant={'contained'}
-              color={'primary'}
-              onClick={this.onRegisterHandler}
+  return (
+    <div className={classes.background}>
+      <div className={classes.page}>
+        <Typography variant={'h3'}>Register</Typography>
+        <div className={classes.form}>
+          <TextField
+            name={'name'}
+            label={'name'}
+            variant={'outlined'}
+            type={'text'}
+            onChange={(event) => handleChange(event, 'name')}
+          />
+          <TextField
+            name={'date of birth'}
+            label={'date of birth'}
+            variant={'outlined'}
+            type={'date'}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            onChange={(event) => handleChange(event, 'date')}
+          />
+          <TextField
+            name={'username'}
+            label={'username'}
+            variant={'outlined'}
+            type={'text'}
+            onChange={(event) => handleChange(event, 'username')}
+          />
+          <TextField
+            name={'password'}
+            label={'password'}
+            variant={'outlined'}
+            type={'password'}
+            onChange={(event) => handleChange(event, 'password')}
+          />
+          <TextField
+            name={'repassword'}
+            label={'repeat password'}
+            variant={'outlined'}
+            type={'password'}
+            onChange={(event) => handleChange(event, 'repassword')}
+          />
+          <Button
+            variant={'contained'}
+            color={'primary'}
+            onClick={onRegisterHandler}
+          >
+            Enter
+          </Button>
+          <div>
+            <Link
+              onClick={() => history.goBack()}
+              style={{ cursor: 'pointer' }}
             >
-              Enter
-            </Button>
-            <div>
-              <Link
-                onClick={() => history.goBack()}
-                style={{ cursor: 'pointer' }}
-              >
-                Already registered
-              </Link>
-            </div>
+              Already registered
+            </Link>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export const Register = RegisterInner;
+const RegisterComplete = () => (
+  <ToastProvider
+    autoDismiss
+    autoDismissTimeout={3000}
+    placement="bottom-center"
+  >
+    <RegisterInner></RegisterInner>
+  </ToastProvider>
+);
+export const Register = RegisterComplete;

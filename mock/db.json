@@ -49,5 +49,13 @@
         ]
       }
     ]
-  }
+  },
+  "register-error": {
+    "ok": 0,
+    "error": 1,
+    "message": "E-mail already used"
+  },
+  "users": [
+    
+  ]
 }
