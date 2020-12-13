@@ -12,6 +12,7 @@ import { routes } from 'core/routes';
 import { LoginScene } from './scenes';
 import { DashboardScene } from './scenes/dashboard.scene';
 import { PatientOverviewScene } from './scenes/patient-overview.scene';
+import { AppointmentsScene } from './scenes/appointments.scene';
 
 export const AppRouter = () => (
   <HashRouter>
@@ -30,6 +31,9 @@ export const AppRouter = () => (
       </Route>
       <Route exact={true} path={routes.patientOverview}>
         <PatientOverviewScene />
+      </Route>
+      <Route exact={true} path={routes.appointments}>
+        <AppointmentsScene />
       </Route>
     </Switch>
   </HashRouter>
