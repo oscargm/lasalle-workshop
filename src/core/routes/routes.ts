@@ -3,4 +3,5 @@ export const routes = {
   dashboard: '/dashboard',
   patientOverview: '/patient',
   appointments: '/appointments',
+  register: '/register',
 };

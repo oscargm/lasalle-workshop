@@ -13,6 +13,7 @@ import { LoginScene } from './scenes';
 import { DashboardScene } from './scenes/dashboard.scene';
 import { PatientOverviewScene } from './scenes/patient-overview.scene';
 import { AppointmentsScene } from './scenes/appointments.scene';
+import { RegisterScene } from './scenes/register.scene';
 
 export const AppRouter = () => (
   <HashRouter>
@@ -34,6 +35,9 @@ export const AppRouter = () => (
       </Route>
       <Route exact={true} path={routes.appointments}>
         <AppointmentsScene />
+      </Route>
+      <Route exact={true} path={routes.register}>
+        <RegisterScene />
       </Route>
     </Switch>
   </HashRouter>

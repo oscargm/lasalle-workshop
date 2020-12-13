@@ -2,5 +2,6 @@
   "/dashboard": "/dashboard",
   "/posts/:id": "/posts/:id",
   "/patient/:id/$1": "/patient/:id/$1",
-  "/appointments/:id": "/appointments/?patientId=:id"
+  "/appointments/:id": "/appointments/?patientId=:id",
+  "*/register-error": "/register-error"
 }
