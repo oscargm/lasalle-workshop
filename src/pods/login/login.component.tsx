@@ -1,6 +1,12 @@
 import * as React from 'react';
 import { history } from 'core/routes/history';
-import { Button, makeStyles, TextField, Typography } from '@material-ui/core';
+import {
+  Button,
+  makeStyles,
+  TextField,
+  Typography,
+  Link,
+} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -59,6 +65,14 @@ export const Login = () => {
           >
             Enter
           </Button>
+          <div>
+            <Link
+              onClick={() => history.push('/register')}
+              style={{ cursor: 'pointer' }}
+            >
+              Register here
+            </Link>
+          </div>
         </div>
       </div>
     </div>
