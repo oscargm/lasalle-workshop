@@ -6,6 +6,11 @@ const jwt = require('jsonwebtoken');
 const server = jsonServer.create();
 const router = jsonServer.router(`${__dirname}/db.json`);
 const userdb = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'UTF-8'));
+// server.use(
+//   jsonServer.rewriter(
+//     JSON.parse(fs.readFileSync(`${__dirname}/routes.json`, 'UTF-8'))
+//   )
+// );
 
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
@@ -122,7 +127,7 @@ server.use(/^(?!\/auth).*$/, (req, res, next) => {
       res.status(status).json({ status, message });
       return;
     }
-    console.log('allgood');
+    console.log('allgood', req);
     next();
   } catch (err) {
     const status = 401;

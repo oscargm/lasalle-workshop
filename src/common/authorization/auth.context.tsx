@@ -7,11 +7,10 @@ interface AuthProps {
 const AuthContext = React.createContext(undefined);
 
 const AuthProvider = (props) => {
-  const [state, setState] = React.useState<AuthProps>({ token: '' });
+  const [state, setState] = React.useState<AuthProps>({
+    token: localStorage.getItem('sessionToken'),
+  });
   return (
-    // <AuthContext.Provider value={[state, setState]}>
-    //   {props.children}
-    // </AuthContext.Provider>
     <AuthContext.Provider value={[state, setState]}>
       {props.children}
     </AuthContext.Provider>

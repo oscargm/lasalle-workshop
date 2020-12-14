@@ -1,5 +1,6 @@
 import { Menu, MenuItem } from '@material-ui/core';
 import * as React from 'react';
+import { useAuth } from 'src/common/authorization/auth.hook';
 
 interface AppbarMenuProps {
   anchorEl: Element;
@@ -8,12 +9,17 @@ interface AppbarMenuProps {
 
 export const AppBarMenu = (props: AppbarMenuProps) => {
   const { anchorEl, setAnchorEl } = props;
+  const { removeToken } = useAuth();
   const menuId = 'primary-search-account-menu';
 
   const isMenuOpen = Boolean(anchorEl);
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+  };
+
+  const logout = () => {
+    removeToken();
   };
 
   return (
@@ -28,6 +34,7 @@ export const AppBarMenu = (props: AppbarMenuProps) => {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={logout}>Logout</MenuItem>
     </Menu>
   );
 };

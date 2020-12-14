@@ -51,7 +51,6 @@ export const Login = () => {
       .then((response) => {
         console.log('response', JSON.stringify(response));
         setToken(response['access_token']);
-        localStorage.setItem('user', JSON.stringify(response));
         history.push('/dashboard');
       })
       .catch((error: string) => {
