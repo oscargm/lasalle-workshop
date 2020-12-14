@@ -9,7 +9,7 @@ import {
   Link,
 } from '@material-ui/core';
 import { login } from './api/login.service';
-import { AuthContext } from 'src/common/authorization/auth.context';
+import { useAuth } from 'src/common/authorization/auth.hook';
 
 const useStyles = makeStyles((theme) => ({
   background: {
@@ -45,12 +45,12 @@ export const Login = () => {
   }>({ username: '', password: '' });
   const classes = useStyles();
   const { addToast } = useToasts();
-  const [token, setToken] = React.useContext(AuthContext);
+  const { setToken } = useAuth();
   const onLoginHandler = () => {
     login(loginData.username, loginData.password)
       .then((response) => {
-        console.log('response');
-        setToken(JSON.stringify(response));
+        console.log('response', JSON.stringify(response));
+        setToken(response['access_token']);
         localStorage.setItem('user', JSON.stringify(response));
         history.push('/dashboard');
       })

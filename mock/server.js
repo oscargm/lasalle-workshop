@@ -4,7 +4,7 @@ const jsonServer = require('json-server');
 const jwt = require('jsonwebtoken');
 
 const server = jsonServer.create();
-const router = jsonServer.router('./db.json');
+const router = jsonServer.router(`${__dirname}/db.json`);
 const userdb = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'UTF-8'));
 
 server.use(bodyParser.urlencoded({ extended: true }));
@@ -122,6 +122,7 @@ server.use(/^(?!\/auth).*$/, (req, res, next) => {
       res.status(status).json({ status, message });
       return;
     }
+    console.log('allgood');
     next();
   } catch (err) {
     const status = 401;

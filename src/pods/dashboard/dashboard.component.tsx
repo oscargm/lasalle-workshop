@@ -11,26 +11,23 @@ import {
 import { useStyles } from './dashboard.styles';
 import { DASHBOARD_URL } from 'src/core/constants';
 import { history } from 'core/routes/history';
+import { useAuth } from 'src/common/authorization/auth.hook';
+
+interface Widget {
+  title: string;
+  description: string;
+  items: { name: string; altText: string; url: string }[];
+}
 
 export const Dashboard = () => {
   const classes = useStyles();
-  const [widgets, setWidgets] = React.useState<
-    {
-      title: string;
-      description: string;
-      items: { name: string; altText: string; url: string }[];
-    }[]
-  >([]);
+  const [widgets, setWidgets] = React.useState<Widget[]>([]);
+  const { token } = useAuth();
 
   React.useEffect(() => {
-    // setSections(
-    //   ['My health', 'Notifications', 'My doctor', 'Appointments', 'Agenda'].map((sectionTitle) => ({
-    //     title: sectionTitle,
-    //     items: ['item-1', 'item-2', 'item-3'],
-    //     buttons: ['details', 'close'],
-    //   }))
-    // );
-    fetch(DASHBOARD_URL).then((res) =>
+    fetch(DASHBOARD_URL, {
+      headers: { Authorization: `Bearer ${token}` },
+    }).then((res) =>
       res.json().then((serialized) => {
         console.log('serialized', serialized);
         setWidgets(serialized.widgets);

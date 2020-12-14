@@ -101,7 +101,7 @@
           "status": "Accepted"
         },
         {
-          "id": "2",
+          "id": 2,
           "name": "Gin Tonic",
           "speciality": "Cardiology",
           "appointmentDate": "2020/12/20",
@@ -111,7 +111,7 @@
           "status": "Pending"
         },
         {
-          "id": "3",
+          "id": 3,
           "name": "Deborah Angel",
           "speciality": "Neurology",
           "appointmentDate": "2021/01/07",

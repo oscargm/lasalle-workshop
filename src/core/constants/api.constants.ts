@@ -14,7 +14,7 @@ export const DASHBOARD_URL =
 
 export const PATIENT_URL = process.env.PATIENT_URL ?? `${BASE_URL}/patients`;
 export const APPOINTMENTS_URL =
-  process.env.PATIENT_URL ?? `${BASE_URL}/appointments`;
+  process.env.APPOINTMENTS_URL ?? `${BASE_URL}/appointments`;
 
 export const REGISTER_URL =
   process.env.REGISTER_URL ?? `${BASE_URL}/auth/register`;
