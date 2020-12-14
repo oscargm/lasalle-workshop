@@ -36,7 +36,8 @@
     "sonar": "sonar-scanner",
     "auth-server": "node ./mock/server.js",
     "mock-server": "json-server-auth ./mock/db.json --routes ./mock/routes.json --watch ./mock/db.json --id id",
-    "api:start": "json-server src/utils/api.js"
+    "api:start": "json-server src/utils/api.js",
+    "generate-data": "node ./src/utils/generate-data.js"
   },
   "cypress-cucumber-preprocessor": {
     "step_definitions": "test/cypress/steps",
