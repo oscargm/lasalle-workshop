@@ -4,7 +4,7 @@ import { getAppointments } from './api/appointments.service';
 import { useStyles } from './appointments.styles';
 import { Appointment, Columns } from './model';
 import { DataGrid } from '@material-ui/data-grid';
-import { useAuth } from 'src/common/authorization/auth.hook';
+import { useAuth } from 'common/authorization';
 
 export const Appointments = () => {
   const [appointments, setAppointments] = React.useState<Appointment[]>([]);

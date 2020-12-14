@@ -11,7 +11,7 @@ import {
 import { useStyles } from './dashboard.styles';
 import { DASHBOARD_URL } from 'src/core/constants';
 import { history } from 'core/routes/history';
-import { useAuth } from 'src/common/authorization/auth.hook';
+import { useAuth } from 'common/authorization';
 
 interface Widget {
   title: string;

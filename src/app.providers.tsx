@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { ToastProvider } from 'react-toast-notifications';
-import { AuthProvider } from './common/authorization/auth.context';
+import { AuthProvider } from './common/authorization';
 export const AppProviders: React.FC = ({ children }) => {
   const theme = createMuiTheme();
   return (

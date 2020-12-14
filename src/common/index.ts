@@ -1,4 +1,3 @@
 export * from './authorization';
-export * from './cookie';
-export * from './base-action';
+export * from './components';
 export * from './utils';

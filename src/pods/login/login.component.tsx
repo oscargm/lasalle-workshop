@@ -9,7 +9,7 @@ import {
   Link,
 } from '@material-ui/core';
 import { login } from './api/login.service';
-import { useAuth } from 'src/common/authorization/auth.hook';
+import { useAuth } from 'common/authorization';
 
 const useStyles = makeStyles((theme) => ({
   background: {

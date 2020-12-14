@@ -3,7 +3,7 @@ import * as React from 'react';
 import { AppointmentStatus } from './model';
 
 export const renderStatus = (status: string) => {
-  switch (status) {
+  switch (status.toLowerCase()) {
     case AppointmentStatus.Accepted:
       return (
         <div
@@ -14,8 +14,7 @@ export const renderStatus = (status: string) => {
             alignItems: 'center',
           }}
         >
-          <Chip color="primary" />
-          <Typography variant={'caption'}>Accepted</Typography>
+          <Chip color="primary" label={'Accepted'} />
         </div>
       );
     case AppointmentStatus.Pending:
@@ -28,11 +27,21 @@ export const renderStatus = (status: string) => {
             alignItems: 'center',
           }}
         >
-          <Chip color="secondary" />
-          <Typography variant={'caption'}>Pending</Typography>
+          <Chip color="secondary" label={'Pending'} />
         </div>
       );
     default:
-      return <Button variant="contained">{status}</Button>;
+      return (
+        <div
+          style={{
+            display: 'flex',
+            width: '100%',
+            justifyContent: 'space-around',
+            alignItems: 'center',
+          }}
+        >
+          <Chip color="default" label={status} />
+        </div>
+      );
   }
 };

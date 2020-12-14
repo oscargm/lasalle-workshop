@@ -1,6 +1,6 @@
 import { Menu, MenuItem } from '@material-ui/core';
 import * as React from 'react';
-import { useAuth } from 'src/common/authorization/auth.hook';
+import { useAuth } from 'common/authorization';
 
 interface AppbarMenuProps {
   anchorEl: Element;
