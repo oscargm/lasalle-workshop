@@ -67,7 +67,6 @@ server.post('/auth/register', (req, res) => {
 
     // Get current users data
     var data = JSON.parse(data.toString());
-    console.log(data);
     // Get the id of last user
     var last_item_id = data.users[data.users.length - 1].id;
 
