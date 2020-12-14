@@ -42,3 +42,12 @@ http://localhost:5070/
 
   - [Overview and recipes](https://redux.js.org/recipes/writing-tests)
   - [Redux Sagas](http://redux-saga-test-plan.jeremyfairbank.com/)
+
+### Create new route
+
+- Create route config
+
+  - Add new route in src/routes/routes.ts
+  - Add Scene to draw in app.router.tsx
+  - Create new Scene in Scenes and export in index.ts
+  - Create new Pod in pods/folder with scene name and index.ts to export
