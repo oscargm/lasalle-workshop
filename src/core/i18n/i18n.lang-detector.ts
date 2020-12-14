@@ -1,9 +1,10 @@
 import { LanguageDetectorModule } from 'i18next';
-import { getLanguageFromCookie } from 'common/cookie';
+// import { getLanguageFromCookie } from 'common/cookie';
 
 const languageDetector: LanguageDetectorModule = {
   type: 'languageDetector',
-  detect: () => getLanguageFromCookie(),
+  detect: () => 'en',
+  // detect: () => getLanguageFromCookie(),
   init: () => {},
   cacheUserLanguage: (lng) => {
     localStorage.setItem('i18nextLng', lng); // Cache detected language

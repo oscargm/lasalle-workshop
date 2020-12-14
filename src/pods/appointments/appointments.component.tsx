@@ -4,15 +4,18 @@ import { getAppointments } from './api/appointments.service';
 import { useStyles } from './appointments.styles';
 import { Appointment, Columns } from './model';
 import { DataGrid } from '@material-ui/data-grid';
+import { useAuth } from 'src/common/authorization/auth.hook';
 
 export const Appointments = () => {
   const [appointments, setAppointments] = React.useState<Appointment[]>([]);
-
+  const { token } = useAuth();
   const classes = useStyles();
 
   React.useEffect(() => {
-    console.log('appointments');
-    getAppointments(1).then((response) => setAppointments(response));
+    getAppointments(1, token).then((response: Appointment[]) => {
+      console.log('response', response);
+      setAppointments(response);
+    });
   }, []);
 
   return (

@@ -13,3 +13,10 @@ export const DASHBOARD_URL =
   process.env.DASHBOARD_URL ?? `${BASE_URL}/dashboard`;
 
 export const PATIENT_URL = process.env.PATIENT_URL ?? `${BASE_URL}/patients`;
+export const APPOINTMENTS_URL =
+  process.env.APPOINTMENTS_URL ?? `${BASE_URL}/appointments`;
+
+export const REGISTER_URL =
+  process.env.REGISTER_URL ?? `${BASE_URL}/auth/register`;
+
+export const LOGIN_URL = process.env.LOGIN_URL ?? `${BASE_URL}/auth/login`;

@@ -14,31 +14,32 @@ import { DashboardScene } from './scenes/dashboard.scene';
 import { PatientOverviewScene } from './scenes/patient-overview.scene';
 import { AppointmentsScene } from './scenes/appointments.scene';
 import { RegisterScene } from './scenes/register.scene';
+import { PrivateRoute } from './core/routes/private-route.component';
 
 export const AppRouter = () => (
   <HashRouter>
     <Switch>
-      {/* TODO: configure protected routes */}
-      {/* <Route exact={true} path={routes.home}>
-        <SingleView>
-          <Redirect to={routes.home} />
-        </SingleView>
-        </Route> */}
       <Route exact={true} path={routes.login}>
         <LoginScene />
-      </Route>
-      <Route exact={true} path={routes.dashboard}>
-        <DashboardScene />
-      </Route>
-      <Route exact={true} path={routes.patientOverview}>
-        <PatientOverviewScene />
-      </Route>
-      <Route exact={true} path={routes.appointments}>
-        <AppointmentsScene />
       </Route>
       <Route exact={true} path={routes.register}>
         <RegisterScene />
       </Route>
+      <PrivateRoute
+        exact={true}
+        path={routes.dashboard}
+        component={DashboardScene}
+      />
+      <PrivateRoute
+        exact={true}
+        path={routes.patientOverview}
+        component={PatientOverviewScene}
+      />
+      <PrivateRoute
+        exact={true}
+        path={routes.appointments}
+        component={AppointmentsScene}
+      />
     </Switch>
   </HashRouter>
 );

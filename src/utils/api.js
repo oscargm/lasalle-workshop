@@ -1,7 +1,7 @@
 const faker = require('faker/locale/es');
 const _ = require('lodash');
 
-module.exports = () => ({
+const generateData = () => ({
   patients: _.times(10, (index) => ({
     id: index,
     avatar: faker.image.avatar(),
@@ -54,7 +54,6 @@ module.exports = () => ({
   /**
    * END-TODO
    */
-  
-
-
 });
+
+module.exports = generateData;
