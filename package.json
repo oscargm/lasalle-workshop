@@ -64,6 +64,7 @@
     "i18next": "^17.0.13",
     "i18next-xhr-backend": "^3.1.2",
     "immutable": "^3.8.2",
+    "json-server-auth": "^2.0.2",
     "md5": "^2.3.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
