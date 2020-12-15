@@ -60,4 +60,6 @@ module.exports = {
   ],
   restoreMocks: true,
   automock: false,
+  setupFiles: ['<rootDir>/config/jest/setup-jest.js'],
+  setupFilesAfterEnv: ['<rootDir>/config/jest/setup-after.ts'],
 };
