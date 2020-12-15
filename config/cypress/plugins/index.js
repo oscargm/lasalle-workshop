@@ -1,11 +1,15 @@
-const cucumber = require('cypress-cucumber-preprocessor').default;
+const webpack = require('@cypress/webpack-preprocessor')
+const allureWriter = require('@shelex/cypress-allure-plugin/writer');
 
 module.exports = (on, config) => {
-  require('@cypress/code-coverage/task')(on, config);
+  const options = {
+    // send in the options from your webpack.config.js, so it works the same
+    // as your app's code
+    webpackOptions: require('../../webpack/dev'),
+    watchOptions: {}
+  }
 
-  on('file:preprocessor', cucumber());
-
-  // important - return config because code coverage plugin
-  // modifies environment variables there
+  on('file:preprocessor', webpack(options))
+  allureWriter(on, config);
   return config;
-};
+}

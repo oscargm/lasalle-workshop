@@ -16,6 +16,9 @@ module.exports = merge(base, {
     stats: 'minimal',
     hot: true,
   },
+  node: {
+    fs: 'empty' // avoid error in webpack with fs
+  },
   module: {
     rules: [
       {

@@ -2,18 +2,22 @@
   "viewportWidth": 1280,
   "viewportHeight": 1024,
   "video": false,
-  "testFiles": "**/*.{feature,features}",
-  "fixturesFolder": "test/cypress/fixtures",
   "integrationFolder": "test/cypress",
-  "pluginsFile": "config/cypress/plugins/index.js",
+  "testFiles": "integration/*.ts",
+  "fixturesFolder": "test/cypress/fixtures",
   "screenshotsFolder": "snapshots/cypress/images",
   "videosFolder": "snapshots/cypress/videos",
   "defaultCommandTimeout": 10000,
+  "pluginsFile": "config/cypress/plugins/index.js",
   "supportFile": "config/cypress/support/index.js",
   "reporter": "junit",
   "watchForFileChanges": false,
   "reporterOptions": {
     "mochaFile": "reports/cypress.junit.xml",
     "toConsole": false
+  },
+  "env": {
+    "allureResultsPath": "aFolder/results",
+    "allure": true
   }
 }
