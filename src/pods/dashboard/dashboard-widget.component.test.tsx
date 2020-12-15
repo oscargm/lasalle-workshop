@@ -16,7 +16,6 @@ describe('widget component', () => {
         <Widget title={'title'} items={mockedItems} />
       </AppProviders>
     );
-    // const title = getByText('Dashboard');
     expect(getByTestId('widget-title').textContent).toStrictEqual('title');
     expect(getAllByTestId('widget-item')).toHaveLength(4);
     expect(getAllByTestId('widget-link')).toHaveLength(4);
