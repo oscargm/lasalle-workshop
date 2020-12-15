@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { AuthContext } from './auth.context';
 
-export const useAuth = (token: string = '') => {
+export const useAuth = () => {
   const [state, setState] = React.useContext(AuthContext);
 
   const setToken = (newToken: string) => {

@@ -1,20 +1,15 @@
 import * as React from 'react';
-import {
-  BrowserRouter,
-  HashRouter,
-  Redirect,
-  Route,
-  Switch,
-} from 'react-router-dom';
-// import { ConnectedRouter } from 'connected-react-router';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import { routes } from 'core/routes';
-// import { SingleView } from 'layouts';
 import { LoginScene } from './scenes';
 import { DashboardScene } from './scenes/dashboard.scene';
 import { PatientOverviewScene } from './scenes/patient-overview.scene';
 import { AppointmentsScene } from './scenes/appointments.scene';
 import { RegisterScene } from './scenes/register.scene';
 import { PrivateRoute } from './core/routes/private-route.component';
+import { DemoScene } from './scenes/demo.scene';
+
+// react-router-dom docs: https://reactrouter.com/web/guides/quick-start
 
 export const AppRouter = () => (
   <HashRouter>
@@ -24,6 +19,9 @@ export const AppRouter = () => (
       </Route>
       <Route exact={true} path={routes.register}>
         <RegisterScene />
+      </Route>
+      <Route exact={true} path={routes.demo}>
+        <DemoScene />
       </Route>
       <PrivateRoute
         exact={true}

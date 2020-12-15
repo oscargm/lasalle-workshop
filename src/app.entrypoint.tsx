@@ -5,11 +5,9 @@ import { AppRouter } from './app.router';
 import 'core/i18n/i18n.instance';
 
 const App: React.FC = () => (
-  <React.Suspense fallback={null}>
-    <AppProviders>
-      <AppRouter />
-    </AppProviders>
-  </React.Suspense>
+  <AppProviders>
+    <AppRouter />
+  </AppProviders>
 );
 
 ReactDOM.render(<App />, document.getElementById('root'));

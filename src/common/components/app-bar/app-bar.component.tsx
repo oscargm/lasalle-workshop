@@ -1,10 +1,13 @@
 import * as React from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import MailIcon from '@material-ui/icons/Mail';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import { AppBar, Toolbar, IconButton, Typography, InputBase, Badge } from '@material-ui/core';
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  InputBase,
+} from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { useStyles } from './app-bar.styles';
 import { AppBarMenu } from './menu.component';
@@ -19,7 +22,12 @@ export const RocheAppBar = () => {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="open drawer">
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="open drawer"
+          >
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>

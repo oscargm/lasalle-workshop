@@ -12,6 +12,7 @@ export const Appointments = () => {
   const classes = useStyles();
 
   React.useEffect(() => {
+    //  TODO: change 1 for userId
     getAppointments(1, token).then((response: Appointment[]) => {
       console.log('response', response);
       setAppointments(response);
