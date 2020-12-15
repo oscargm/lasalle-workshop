@@ -10,7 +10,13 @@ module.exports = {
     '^scenes(.*)$': '<rootDir>/src/scenes/$1',
     '^src(.*)$': '<rootDir>/src/$1',
   },
-  modulePathIgnorePatterns: ['<rootDir>/build-prod/', '<rootDir>/build-dev/', '<rootDir>/test'],
+
+  modulePathIgnorePatterns: [
+    '<rootDir>/build-prod/',
+    '<rootDir>/build-dev/',
+    '<rootDir>/test',
+  ],
+  testRegex: ['.+\\.spec.tsx', '.+\\.test.tsx'],
   transform: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/config/jest/file-transformer.js',
@@ -20,9 +26,6 @@ module.exports = {
     '/node_modules/(?!transpile-me|transpile-me-too|lodash-es|@roche/components-library-mui).+(js|jsx|svg)$',
   ],
   globals: {
-    __REST_RULE_ENGINE_URL__: 'http://localhost:3000/csp/conn/rest/rule-engine',
-    __ONLINE_HELP_URL__:
-      'http://localhost:3000/csp/conn/LISPages/help/en-US/HTML/index.html?file=g9221207u9226542.html',
     'ts-jest': {
       isolatedModules: true,
     },
@@ -56,4 +59,5 @@ module.exports = {
     ],
   ],
   restoreMocks: true,
+  automock: false,
 };
