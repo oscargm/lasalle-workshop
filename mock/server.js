@@ -6,12 +6,6 @@ const jwt = require('jsonwebtoken');
 const server = jsonServer.create();
 const router = jsonServer.router(`${__dirname}/db.json`);
 
-// server.use(
-//   jsonServer.rewriter(
-//     JSON.parse(fs.readFileSync(`${__dirname}/routes.json`, 'UTF-8'))
-//   )
-// );
-
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 server.use(jsonServer.defaults());

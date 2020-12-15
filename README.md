@@ -38,16 +38,11 @@ http://localhost:5070/
   - [General Hooks](https://react-hooks-testing-library.com/)
   - [Custom Hooks](https://kentcdodds.com/blog/how-to-test-custom-react-hooks)
 
-- Redux
+### Create new route
 
-  - [Overview and recipes](https://redux.js.org/recipes/writing-tests)
-  - [Redux Sagas](http://redux-saga-test-plan.jeremyfairbank.com/)
+#### Create route config
 
-# Create new route
-
-### Create route config
-
-  - Add new route in src/routes/routes.ts
-  - Add Scene to draw in app.router.tsx
-  - Create new Scene in Scenes and export in index.ts
-  - Create new Pod in pods/folder with scene name and index.ts to export
+- Add new route in src/routes/routes.ts
+- Add Scene to draw in app.router.tsx
+- Create new Scene in Scenes and export in index.ts
+- Create new Pod in pods/folder with scene name and index.ts to export
