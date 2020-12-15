@@ -23,8 +23,6 @@
       "scenes": ["src/scenes"]
     }
   },
-  "include": [
-    "./src/**/*", 
-    "./test/**/*",
-  ]
+  "include": ["./src/**/*"],
+  "exclude": ["./node_modules"]
 }
