@@ -31,22 +31,14 @@
     "test:jest:watch": "cross-env NODE_ENV=test jest --verbose --watchAll --config ./config/jest/jest.config.js --no-cache --runInBand",
     "test:cy": "cross-env NODE_ENV=test npm-run-all --parallel --race start cy:run",
     "test:cy:open": "cross-env NODE_ENV=test npm-run-all --parallel start cy:open",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open",
+    "cy:run": "cypress run --config-file ./config/cypress/cypress.json",
+    "cy:open": "cypress open --config-file ./config/cypress/cypress.json",
+    "cy:install": "cypress install",
     "sonar": "sonar-scanner",
     "auth:server": "node ./mock/server.js",
     "mock:server": "json-server-auth ./mock/db.json --routes ./mock/routes.json --watch ./mock/db.json --id id",
     "api:start": "json-server src/utils/api.js",
     "generate-data": "node ./src/utils/generate-data.js"
-  },
-  "cypress-cucumber-preprocessor": {
-    "step_definitions": "test/cypress/steps",
-    "cucumberJson": {
-      "generate": false,
-      "outputFolder": "reports",
-      "filePrefix": "cypress.",
-      "fileSuffix": ".cucumber"
-    }
   },
   "nyc": {
     "report-dir": "cypress-coverage"
@@ -84,6 +76,8 @@
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.3.3",
     "@cypress/code-coverage": "^3.7.0",
+    "@cypress/webpack-preprocessor": "^5.5.0",
+    "@shelex/cypress-allure-plugin": "^1.8.5",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.5.0",
     "@testing-library/react-hooks": "^3.2.1",
@@ -107,8 +101,10 @@
     "copyfiles": "^2.1.1",
     "cross-env": "^5.2.1",
     "css-loader": "^3.2.0",
+    "cypress": "^6.1.0",
     "cypress-cucumber-preprocessor": "^2.3.1",
     "deep-freeze": "0.0.1",
+    "enzyme": "^3.11.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.3",

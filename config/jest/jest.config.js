@@ -10,7 +10,7 @@ module.exports = {
     '^scenes(.*)$': '<rootDir>/src/scenes/$1',
     '^src(.*)$': '<rootDir>/src/$1',
   },
-  modulePathIgnorePatterns: ['<rootDir>/build-prod/', '<rootDir>/build-dev/'],
+  modulePathIgnorePatterns: ['<rootDir>/build-prod/', '<rootDir>/build-dev/', '<rootDir>/test'],
   transform: {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       '<rootDir>/config/jest/file-transformer.js',

@@ -1,1 +1,1 @@
-import '@cypress/code-coverage/support';
+import '@shelex/cypress-allure-plugin';
