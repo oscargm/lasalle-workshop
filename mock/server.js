@@ -123,7 +123,6 @@ server.use(/^(?!\/auth).*$/, (req, res, next) => {
       res.status(status).json({ status, message });
       return;
     }
-    console.log('allgood', req);
     next();
   } catch (err) {
     const status = 401;

@@ -2,12 +2,12 @@ import { Menu, MenuItem } from '@material-ui/core';
 import * as React from 'react';
 import { useAuth } from 'common/authorization';
 
-interface AppbarMenuProps {
+interface AppBarMenuProps {
   anchorEl: Element;
   setAnchorEl: (element: Element) => void;
 }
 
-export const AppBarMenu = (props: AppbarMenuProps) => {
+export const AppBarMenu = (props: AppBarMenuProps) => {
   const { anchorEl, setAnchorEl } = props;
   const { removeToken } = useAuth();
   const menuId = 'primary-search-account-menu';
