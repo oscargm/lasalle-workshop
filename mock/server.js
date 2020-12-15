@@ -5,12 +5,6 @@ const jwt = require('jsonwebtoken');
 
 const server = jsonServer.create();
 const router = jsonServer.router(`${__dirname}/db.json`);
-const userdb = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'UTF-8'));
-// server.use(
-//   jsonServer.rewriter(
-//     JSON.parse(fs.readFileSync(`${__dirname}/routes.json`, 'UTF-8'))
-//   )
-// );
 
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
@@ -34,6 +28,9 @@ function verifyToken(token) {
 
 // Check if the user exists in database
 function isAuthenticated({ email, password }) {
+  const userdb = JSON.parse(
+    fs.readFileSync(`${__dirname}/users.json`, 'UTF-8')
+  );
   return (
     userdb.users.findIndex(
       (user) => user.email === email && user.password === password
@@ -54,7 +51,7 @@ server.post('/auth/register', (req, res) => {
     return;
   }
 
-  fs.readFile('./users.json', (err, data) => {
+  fs.readFile(`${__dirname}/users.json`, (err, data) => {
     if (err) {
       const status = 401;
       const message = err;
@@ -64,14 +61,13 @@ server.post('/auth/register', (req, res) => {
 
     // Get current users data
     var data = JSON.parse(data.toString());
-
     // Get the id of last user
     var last_item_id = data.users[data.users.length - 1].id;
 
     //Add new user
     data.users.push({ id: last_item_id + 1, email: email, password: password }); //add some data
     var writeData = fs.writeFile(
-      './users.json',
+      `${__dirname}/users.json`,
       JSON.stringify(data),
       (err, result) => {
         // WRITE

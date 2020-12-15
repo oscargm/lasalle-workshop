@@ -8,6 +8,26 @@
     { "id": 6, "email": "nilson3@email.com", "password": "nilson" },
     { "id": 7, "email": "nilson4@email.com", "password": "nilson" },
     { "id": 8, "email": "nilson7@email.com", "password": "nilson" },
-    { "id": 9, "email": "nilson8@email.com", "password": "nilson" }
+    { "id": 9, "email": "nilson8@email.com", "password": "nilson" },
+    {
+      "id": 10,
+      "email": "joan.cruz@roche.com",
+      "password": "81dc9bdb52d04dc20036dbd8313ed055"
+    },
+    {
+      "id": 11,
+      "email": "joan79@gmail.com",
+      "password": "81dc9bdb52d04dc20036dbd8313ed055"
+    },
+    {
+      "id": 12,
+      "email": "bruno@mail2.com",
+      "password": "81dc9bdb52d04dc20036dbd8313ed055"
+    },
+    {
+      "id": 13,
+      "email": "oscar@roche.com",
+      "password": "f156e7995d521f30e6c59a3d6c75e1e5"
+    }
   ]
 }

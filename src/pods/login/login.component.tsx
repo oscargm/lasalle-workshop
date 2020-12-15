@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { history } from 'core/routes/history';
 import { useToasts } from 'react-toast-notifications';
+import md5 from 'md5';
 import {
   Button,
   makeStyles,
@@ -47,7 +48,7 @@ export const Login = () => {
   const { addToast } = useToasts();
   const { setToken } = useAuth();
   const onLoginHandler = () => {
-    login(loginData.username, loginData.password)
+    login(loginData.username, md5(loginData.password))
       .then((response) => {
         console.log('response', JSON.stringify(response));
         setToken(response['access_token']);
