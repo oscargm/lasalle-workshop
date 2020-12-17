@@ -16,7 +16,7 @@ module.exports = merge(
         pods: helpers.resolveFromRootPath('src/pods'),
         scenes: helpers.resolveFromRootPath('src/scenes'),
       },
-      extensions: ['.js', '.ts', '.tsx'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
     entry: {
       app: ['@babel/polyfill', './app.entrypoint.tsx'],
@@ -27,6 +27,11 @@ module.exports = merge(
           test: /\.tsx?$/,
           exclude: /node_modules/,
           loader: 'babel-loader',
+        },
+        {
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader', 
         },
         {
           test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
